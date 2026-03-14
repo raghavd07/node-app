@@ -7,4 +7,9 @@ const showProducts=async(req,res)=>{
 const addProductForm = (req,res)=>{
     res.render("products/add")
 }
-export {showProducts,addProductForm}
+
+const addProduct = async(req,res)=>{
+    await productModel.create(req.body)
+    res.redirect("/admin/products")
+}
+export {showProducts,addProductForm,addProduct}
