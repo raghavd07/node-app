@@ -18,4 +18,17 @@ const deleteProduct = async(req,res)=>{
     await productModel.findByIdAndDelete(id)
     res.redirect("/admin/products")
 }
-export {showProducts,addProductForm,addProduct,deleteProduct}
+
+const editProductForm = async(req,res)=>{
+    const id=req.params.id
+    const product=await productModel.findOne({_id:id})
+    res.render("products/edit",{product})
+}
+
+const saveProduct = async(req,res)=>{
+    const id=req.params.id
+    await productModel.findByIdAndUpdate(id,req.body)
+    res.redirect("/admin/products")
+}
+
+export {showProducts,addProductForm,addProduct,deleteProduct,editProductForm,saveProduct}

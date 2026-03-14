@@ -9,7 +9,7 @@
     <a href="/admin/products/add">Add new product</a>
     <% products.forEach(product=>{ %>
         <li><%= product.name %>-<%= product.price %>-<%= product.desc %> - <%= product.imageUrl %></li>
-        <a href="/admin/products/edit">Edit</a> - <a href="/admin/products/delete/<%= product._id %>">Delete</a>
+        <a href="/admin/products/edit/<%= product._id %>">Edit</a> - <a href="/admin/products/delete/<%= product._id %>">Delete</a>
         
         <% }) %>
 </body>
