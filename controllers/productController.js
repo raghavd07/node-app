@@ -12,4 +12,10 @@ const addProduct = async(req,res)=>{
     await productModel.create(req.body)
     res.redirect("/admin/products")
 }
-export {showProducts,addProductForm,addProduct}
+
+const deleteProduct = async(req,res)=>{
+    const id=req.params.id
+    await productModel.findByIdAndDelete(id)
+    res.redirect("/admin/products")
+}
+export {showProducts,addProductForm,addProduct,deleteProduct}
